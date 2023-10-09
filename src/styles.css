@@ -17,3 +17,40 @@ header h2{
 header img{
   @apply w-10 h-10 object-cover object-center rounded-full
 }
+
+main{
+  @apply py-6 px-3 md:px-4 mx-auto max-w-7xl
+}
+
+.search-container{
+  @apply flex flex-col gap-5 md:flex-row justify-between 
+}
+
+form{
+  @apply flex relative
+}
+
+.search-container input{
+  @apply border-[1px] border-gray-200 w-[300px] p-2 pl-12 rounded-md focus:outline-0  focus:border-gray-500 order-2
+}
+
+.search-container form button{
+  @apply absolute left-0 h-full px-4 order-1 text-slate-100
+}
+
+.search-container form button svg{
+  @apply w-5 fill-gray-400
+}
+
+.search-container > div  button{
+  @apply py-2 px-4 border rounded-md border-black
+}
+
+.search-container > div > button:nth-child(1){
+  @apply mr-2  hover:bg-gray-100
+}
+
+.search-container > div > button:nth-child(2){
+  @apply p-2 bg-black text-white hover:bg-gray-900 
+}
+
