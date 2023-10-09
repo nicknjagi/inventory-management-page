@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+  @apply font-sora
+}
+
+header{
+  @apply flex justify-between items-center py-4 px-3 md:px-4 mx-auto max-w-[1440px] border-b-[1px] border-gray-200 
+}
+
+header h2{
+  @apply text-2xl 
+}
+
+header img{
+  @apply w-10 h-10 object-cover object-center rounded-full
+}

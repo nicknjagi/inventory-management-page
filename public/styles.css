@@ -534,7 +534,44 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.text-red-500 {
-  --tw-text-opacity: 1;
-  color: rgb(239 68 68 / var(--tw-text-opacity));
+body {
+  font-family: Sora, sans-serif;
+}
+
+header {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  max-width: 1440px;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity));
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+header h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+header img {
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 9999px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
