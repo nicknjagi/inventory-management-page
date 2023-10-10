@@ -106,3 +106,10 @@ form{
   @apply py-2 border-y
 }
 
+footer{
+  @apply absolute bottom-0 border-t border-gray-200 py-2 w-full text-center
+}
+
+footer a{
+  @apply text-blue-950
+}
