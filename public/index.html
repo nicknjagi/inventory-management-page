@@ -17,7 +17,7 @@
   <main>
     <section>
       <div class="search-container">
-        <form>
+        <form id="search-form">
           <input type="text" placeholder="Search products">
           <button type="submit" aria-label="search">
             <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
@@ -31,8 +31,52 @@
           <button>ADD NEW PRODUCT</button>
         </div>
       </div>
-      
+      <div class="filter-bar">
+        <div class="filter-container">
+          <button id="category-btn" class="filter-btn"><span>Category</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+              <path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" />
+            </svg>
+          </button>
+          <div class="options" id="category-options">
+            <button>skin care</button>
+            <button>skin care</button>
+            <button>skin care</button>
+            <button>skin care</button>
+          </div>
+        </div>
+        <!-- filter end -->
+        <div class="filter-container">
+          <button id="quantity-btn" class="filter-btn"><span>Quantity</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+              <path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" />
+            </svg>
+          </button>
+          <div class="options" id="quantity-options">
+            <button>0 - 20</button>
+            <button>> 40 </button>
+            <button>> 60</button>
+            <button>> 80</button>
+            <button>> 100</button>
+          </div>
+        </div>
+        <!-- filter end -->
+        <div class="filter-container">
+          <button id="price-btn" class="filter-btn"><span>Price</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+              <path d="M98 190.06l139.78 163.12a24 24 0 0036.44 0L414 190.06c13.34-15.57 2.28-39.62-18.22-39.62h-279.6c-20.5 0-31.56 24.05-18.18 39.62z" />
+            </svg>
+          </button>
+          <div class="options" id="price-options">
+            <button>0 - 100</button>
+            <button>> 200 </button>
+            <button>> 500</button>
+            <button>> 1000</button>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
+  <script src="index.js"></script>
 </body>
 </html>
