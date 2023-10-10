@@ -728,6 +728,11 @@ form {
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+  opacity: 0;
+}
+
+.show-options {
+  opacity: 1;
 }
 
 .options button {

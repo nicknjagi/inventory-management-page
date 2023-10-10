@@ -71,7 +71,11 @@ form{
 }
 
 .options{
-  @apply absolute w-full top-8 flex flex-col border border-gray-200 py-1 mt-2 rounded-xl 
+  @apply absolute w-full top-8 flex flex-col border border-gray-200 py-1 mt-2 rounded-xl opacity-0
+}
+
+.show-options{
+  @apply opacity-100
 }
 
 .options button{
