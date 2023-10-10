@@ -106,6 +106,18 @@ form{
   @apply py-2 border-y
 }
 
+.action-btns{
+  @apply flex items-center gap-3 px-1
+}
+
+.edit-btn svg{
+  @apply w-5 text-green-400
+}
+
+.delete-btn svg{
+  @apply w-5 fill-red-400
+}
+
 footer{
   @apply absolute bottom-0 border-t border-gray-200 py-2 w-full text-center
 }
