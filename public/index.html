@@ -16,9 +16,10 @@
   </header>
   <main>
     <section>
+      <!-- search container -->
       <div class="search-container">
         <form id="search-form">
-          <input type="text" placeholder="Search products">
+          <input id="search" type="text" placeholder="Search products">
           <button type="submit" aria-label="search">
             <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
               <path
@@ -27,10 +28,11 @@
           </button>
         </form>
         <div>
-          <button>CREATE CATEGORY</button>
-          <button>ADD NEW PRODUCT</button>
+          <button id="create-cat-btn">CREATE CATEGORY</button>
+          <button id="add-prod-btn">ADD NEW PRODUCT</button>
         </div>
       </div>
+      <!-- filter bar -->
       <div class="filter-bar">
         <div class="filter-container">
           <button id="category-btn" class="filter-btn"><span>Category</span>
@@ -39,7 +41,7 @@
             </svg>
           </button>
           <div class="options" id="category-options">
-            <button>skin care</button>
+            <button>skin care</button>  
             <button>skin care</button>
             <button>skin care</button>
             <button>skin care</button>
@@ -76,6 +78,7 @@
         </div>
       </div>
     </section>
+    <!-- product table start -->
     <section class="products-container">
       <table id="products">
         <thead>
@@ -169,6 +172,17 @@
       </table>
     </section>
   </main>
+
+  <!-- create category form -->
+  <form id="create-category-form">
+    <label for="new-category">Enter a new category</label>
+    <input type="text" id="new-category" placeholder="e.g electronics">
+    <div>
+      <button type="submit">Create</button>
+      <button class="close-category-form-btn" aria-label="close form">Cancel</button>
+    </div>
+  </form>
+
   <footer>
     <p class="attribution">
       Coded by <a href="https://github.com/nicknjagi" target="_blank">nicknjagi</a>.
