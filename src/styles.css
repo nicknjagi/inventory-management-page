@@ -7,11 +7,15 @@ body{
 }
 
 header{
-  @apply flex justify-between items-center py-4 px-3 md:px-4 mx-auto max-w-[1440px] border-b-[1px] border-gray-200 
+  @apply border-b-[1px] border-gray-200 bg-sky-700
+}
+
+.header-container{
+  @apply flex justify-between items-center py-8 px-3 md:px-8 mx-auto max-w-7xl 
 }
 
 header h2{
-  @apply text-2xl 
+  @apply text-2xl text-white
 }
 
 header img{
@@ -19,11 +23,11 @@ header img{
 }
 
 main{
-  @apply relative py-6 px-3 md:px-4 mx-auto max-w-7xl
+  @apply relative py-8 px-3 md:px-8 mx-auto max-w-7xl
 }
 
 .search-container{
-  @apply flex flex-col gap-5 md:flex-row justify-between 
+  @apply flex flex-col gap-3 md:flex-row justify-between 
 }
 
 form{
@@ -31,7 +35,7 @@ form{
 }
 
 input{
-  @apply border border-gray-200 p-2 rounded-md focus:outline-0  focus:border-gray-500
+  @apply border border-gray-200 p-2 rounded-md focus:outline-0  focus:border-sky-700
 }
 
 .search-container input{
@@ -47,19 +51,27 @@ input{
 }
 
 .search-container > div  button{
-  @apply py-2 px-4 border rounded-md border-black
+  @apply py-2 px-4 border rounded-md border-sky-700 mb-2 sm:mb-0
 }
 
 .search-container > div > button:nth-child(1){
-  @apply mr-2  hover:bg-gray-100
+  @apply mr-2 text-sky-700 hover:bg-gray-100
 }
 
 .search-container > div > button:nth-child(2){
-  @apply p-2 bg-black text-white hover:bg-gray-900 
+  @apply px-3 bg-sky-700 text-white hover:bg-sky-800
 }
 
 .filter-bar{
-  @apply flex gap-3 my-5
+  @apply flex flex-wrap gap-3 my-8
+}
+
+.filter-bar span{
+  @apply flex gap-2 items-center
+}
+
+.filter-bar span svg{
+  @apply w-4
 }
 
 .filter-btn{
@@ -99,7 +111,7 @@ input{
 }
 
 .products-container::-webkit-scrollbar-thumb{
-  @apply bg-gray-800 rounded-md 
+  @apply bg-sky-700 rounded-md 
 }
 
 #products{
@@ -115,7 +127,11 @@ input{
 }
 
 .action-btns{
-  @apply flex items-center gap-3 px-1
+  @apply flex items-center gap-5 px-1
+}
+
+.action-btns button{
+  @apply p-[1px]  border border-transparent hover:border hover:border-gray-300
 }
 
 .edit-btn svg{
@@ -143,7 +159,7 @@ input{
 }
 
 #create-category-form button[type='submit']{
-  @apply border border-black w-fit py-1 px-3 rounded-md hover:bg-black hover:text-white
+  @apply border border-sky-700 text-sky-700 w-fit py-1 px-3 rounded-md hover:bg-sky-700 hover:text-white
 }
 
 .close-category-form-btn, .add-form-btns button:nth-child(2){
