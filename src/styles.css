@@ -54,3 +54,26 @@ form{
   @apply p-2 bg-black text-white hover:bg-gray-900 
 }
 
+.filter-bar{
+  @apply flex gap-3 my-5
+}
+
+.filter-btn{
+  @apply flex items-center gap-3 py-1 px-3 border border-gray-200 rounded-xl text-sm
+}
+
+.filter-btn svg{
+  @apply w-3 fill-black
+}
+
+.filter-container{
+  @apply flex flex-col relative
+}
+
+.options{
+  @apply absolute w-full top-8 flex flex-col border border-gray-200 py-1 mt-2 rounded-xl 
+}
+
+.options button{
+  @apply py-1 hover:bg-gray-200
+}
