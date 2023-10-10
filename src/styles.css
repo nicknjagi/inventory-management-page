@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body{
-  @apply font-sora
+  @apply font-sora relative min-h-screen
 }
 
 header{
@@ -19,7 +19,7 @@ header img{
 }
 
 main{
-  @apply py-6 px-3 md:px-4 mx-auto max-w-7xl
+  @apply relative py-6 px-3 md:px-4 mx-auto max-w-7xl
 }
 
 .search-container{
@@ -30,8 +30,12 @@ form{
   @apply flex relative
 }
 
+input{
+  @apply border border-gray-200 p-2 rounded-md focus:outline-0  focus:border-gray-500
+}
+
 .search-container input{
-  @apply border-[1px] border-gray-200 w-[300px] p-2 pl-12 rounded-md focus:outline-0  focus:border-gray-500 order-2
+  @apply w-[300px] pl-12 order-2
 }
 
 .search-container form button{
@@ -116,6 +120,30 @@ form{
 
 .delete-btn svg{
   @apply w-5 fill-red-400
+}
+
+#create-category-form{
+  @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col gap-2 px-20 py-10 bg-white border border-gray-200 rounded-lg z-50 scale-0
+}
+
+#create-category-form.show-category-form{
+  @apply scale-100
+}
+
+#create-category-form::after{
+  @apply content-[''] w-screen h-screen opacity-5 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 -z-50
+}
+
+#create-category-form div{
+  @apply flex justify-between items-center mt-4
+}
+
+#create-category-form button[type='submit']{
+  @apply border border-black w-fit py-1 px-3 rounded-md hover:bg-black hover:text-white
+}
+
+.close-category-form-btn{
+  @apply p-2 text-red-800 underline underline-offset-4 hover:text-red-400
 }
 
 footer{
