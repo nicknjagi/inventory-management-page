@@ -11,8 +11,10 @@
 </head>
 <body>
   <header>
-    <h2>Manage Products</h2>
-    <img src="https://plus.unsplash.com/premium_photo-1689551670902-19b441a6afde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHByb2ZpbGUlMjBwaWN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60" alt="profile pic">
+    <div class="header-container">
+      <h2>Manage Products</h2>
+      <img src="https://plus.unsplash.com/premium_photo-1689551670902-19b441a6afde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fHByb2ZpbGUlMjBwaWN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=400&q=60" alt="profile pic">
+    </div>
   </header>
   <main>
     <section>
@@ -34,6 +36,9 @@
       </div>
       <!-- filter bar -->
       <div class="filter-bar">
+        <span>Filter
+          <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M472 168H40a24 24 0 010-48h432a24 24 0 010 48zM392 280H120a24 24 0 010-48h272a24 24 0 010 48zM296 392h-80a24 24 0 010-48h80a24 24 0 010 48z"/></svg>
+        </span>
         <div class="filter-container">
           <button id="category-btn" class="filter-btn"><span>Category</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
@@ -179,12 +184,12 @@
     <input type="text" id="new-category" placeholder="e.g electronics">
     <div>
       <button type="submit">Create</button>
-      <button class="close-category-form-btn" aria-label="close form">Cancel</button>
+      <button class="close-category-form-btn" aria-label="close form">Close</button>
     </div>
   </form>
 
   <!-- add product form -->
-	  <form id="add-product-form" class="show-product-form">
+	  <form id="add-product-form" class="">
       <div class="form-row">
         <label for="category-name">Product name:</label>
         <input type="text" id="category-name">
@@ -213,7 +218,7 @@
       </div>
       <div class="add-form-btns">
         <button type="submit">ADD</button>
-        <button id="close-add-form">Cancel</button>
+        <button id="close-add-form">Close</button>
       </div>
     </form>
 
