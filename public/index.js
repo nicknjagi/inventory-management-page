@@ -5,9 +5,25 @@ const priceBtn = document.getElementById('price-btn')
 const categoryOptions = document.getElementById('category-options')
 const quantityOptions = document.getElementById('quantity-options')
 const priceOptions = document.getElementById('price-options')
+const createCategoryBtn = document.getElementById('create-cat-btn')
+const addProductBtn = document.getElementById('add-prod-btn')
+const createCategoryForm = document.getElementById('create-category-form')
+const closeCategoryBtn = document.querySelector('.close-category-form-btn')
 
 searchForm.addEventListener('submit', (e)=> {
   e.preventDefault()
+})
+
+createCategoryBtn.addEventListener('click', () => {
+  createCategoryForm.classList.add('show-category-form')
+})
+
+createCategoryForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+})
+
+closeCategoryBtn.addEventListener('click', () => {
+  createCategoryForm.classList.remove('show-category-form')
 })
 
 categoryBtn.addEventListener('click',() => {
