@@ -103,11 +103,15 @@ input{
 }
 
 #products{
-  @apply w-full min-w-[800px] border-collapse text-left
+  @apply w-full min-w-[800px] border-collapse 
 }
 
 #products thead tr th, #products-body tr td{
-  @apply py-2 border-y
+  @apply py-2 border-y text-left
+}
+
+#products-body tr td:nth-child(3){
+  @apply pl-8
 }
 
 .action-btns{
@@ -121,16 +125,16 @@ input{
 .delete-btn svg{
   @apply w-5 fill-red-400
 }
-
-#create-category-form{
-  @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col gap-2 px-20 py-10 bg-white border border-gray-200 rounded-lg z-50 scale-0
+/* create-category-form */
+#create-category-form, #add-product-form{
+  @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col gap-2 px-14 py-10 bg-white border border-gray-200 rounded-lg z-50 scale-0
 }
 
 #create-category-form.show-category-form{
   @apply scale-100
 }
 
-#create-category-form::after{
+#create-category-form::after, #add-product-form::after{
   @apply content-[''] w-screen h-screen opacity-5 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 -z-50
 }
 
@@ -142,10 +146,52 @@ input{
   @apply border border-black w-fit py-1 px-3 rounded-md hover:bg-black hover:text-white
 }
 
-.close-category-form-btn{
-  @apply p-2 text-red-800 underline underline-offset-4 hover:text-red-400
+.close-category-form-btn, .add-form-btns button:nth-child(2){
+  @apply p-2 text-red-800 hover:underline underline-offset-4 hover:text-red-400
 }
 
+/* add product form */
+#add-product-form{
+  @apply p-6 md:p-20 min-w-[300px] sm:min-w-[500px] gap-4
+}
+
+#add-product-form.show-product-form{
+  @apply scale-100
+}
+
+.form-row{
+  @apply flex flex-col w-1/2 gap-1
+}
+
+.form-row-container{
+  @apply flex flex-col md:flex-row justify-between gap-6
+}
+
+#add-product-form select{
+  @apply border p-2 rounded-md 
+}
+
+.category-input-container{
+  @apply md:order-2 flex flex-col gap-1 md:w-2/3
+}
+
+.quantity-input-container{
+  @apply flex flex-col gap-1 w-1/2 md:w-1/3
+}
+
+.form-row:nth-child(1){
+  @apply w-full
+}
+
+.add-form-btns{
+  @apply flex justify-between items-end mt-8
+}
+
+#add-product-form button:nth-child(1){
+  @apply border border-green-400 w-fit px-10 py-2 rounded-lg bg-green-400 text-white hover:text-green-500 hover:bg-white
+}
+
+/* footer */
 footer{
   @apply absolute bottom-0 border-t border-gray-200 py-2 w-full text-center
 }
