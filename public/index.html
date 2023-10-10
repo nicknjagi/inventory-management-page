@@ -96,7 +96,7 @@
           <tr>
             <td>Moringa body butter</td>
             <td>Skin care</td>
-            <td>51/100</td>
+            <td>51</td>
             <td>$ 24.00</td>
             <td>$ 35.00</td>
             <td>Active</td>
@@ -121,7 +121,7 @@
           <tr>
             <td>Moringa body butter</td>
             <td>Skin care</td>
-            <td>51/100</td>
+            <td>51</td>
             <td>$ 24.00</td>
             <td>$ 35.00</td>
             <td>Active</td>
@@ -146,7 +146,7 @@
           <tr>
             <td>Moringa body butter</td>
             <td>Skin care</td>
-            <td>51/100</td>
+            <td>51</td>
             <td>$ 24.00</td>
             <td>$ 35.00</td>
             <td>Active</td>
@@ -182,6 +182,40 @@
       <button class="close-category-form-btn" aria-label="close form">Cancel</button>
     </div>
   </form>
+
+  <!-- add product form -->
+	  <form id="add-product-form" class="show-product-form">
+      <div class="form-row">
+        <label for="category-name">Product name:</label>
+        <input type="text" id="category-name">
+      </div>
+      <div class="form-row-container">
+        <div class="category-input-container">
+          <label for="category-input">Category</label>
+          <select name="category-input" id="category-input">
+            <option class="hidden" value="choose category">Choose a category</option>
+            <option value="skin care">Skin care</option>
+            <option value="skin care">Skin care</option>
+          </select>
+        </div>
+        <div class="quantity-input-container">
+          <label for="quantity-input">Quantity</label>
+          <input type="number" id="quantity-input">
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="cost-input">Cost</label>
+        <input type="number" id="cost-input">
+      </div>
+      <div class="form-row">
+        <label for="price-input">Price</label>
+        <input type="number" id="price-input">
+      </div>
+      <div class="add-form-btns">
+        <button type="submit">ADD</button>
+        <button id="close-add-form">Cancel</button>
+      </div>
+    </form>
 
   <footer>
     <p class="attribution">
