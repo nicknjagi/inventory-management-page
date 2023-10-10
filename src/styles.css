@@ -86,6 +86,18 @@ form{
   @apply max-w-7xl mx-auto overflow-x-scroll
 }
 
+.products-container::-webkit-scrollbar{
+  @apply  appearance-none bg-gray-300 rounded-md h-2
+}
+
+.products-container::-webkit-scrollbar-track{
+  @apply bg-gray-300 
+}
+
+.products-container::-webkit-scrollbar-thumb{
+  @apply bg-gray-800 rounded-md 
+}
+
 #products{
   @apply w-full min-w-[800px] border-collapse text-left
 }
