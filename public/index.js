@@ -10,6 +10,7 @@ const addProductBtn = document.getElementById('add-prod-btn')
 const createCategoryForm = document.getElementById('create-category-form')
 const closeCategoryBtn = document.querySelector('.close-category-form-btn')
 const addProductForm = document.getElementById('add-product-form')
+const submitBtn = document.getElementById('submit-btn')
 const closeAddFormBtn = document.getElementById('close-add-form')
 const productsBody = document.getElementById('products-body')
 
@@ -38,15 +39,29 @@ addProductBtn.addEventListener('click',() => {
 
 addProductForm.addEventListener('submit', (e) => {
   e.preventDefault()
-  const formData = new FormData(e.currentTarget)
-  console.log([...formData.entries()]);
+})
+submitBtn.addEventListener('click', () => {
+  const formData = new FormData(addProductForm)
+  const values = [...formData.values()]
+
+  if (values.includes('')){
+    alert('Please enter all values')
+    return
+  }
+  if (formData.get('category').toLowerCase() == 'choose category'){
+    alert('Please pick a category')
+    return
+  }
+
+  postProduct(Object.fromEntries(formData.entries()))
+  addProductForm.reset()
+  alert('Item added.')
 })
 
 // closes add product form
 closeAddFormBtn.addEventListener('click', () => {
   addProductForm.classList.remove('show-product-form')
 })
-
 
 // show and hide filter options
 categoryBtn.addEventListener('click',() => {
@@ -87,7 +102,6 @@ function displayProducts(arr,start, end){
   productsBody.innerHTML = prodsHtml.slice(start, end).join('')
 }
 
-
 // fetch products
 function fetchAllProducts(start=0,end=10){
   fetch('http://localhost:3000/items')
@@ -95,6 +109,16 @@ function fetchAllProducts(start=0,end=10){
   .then(data => displayProducts(data,start,end))
 }
 
+// add product using POST
+function postProduct(obj){
+  fetch(`http://localhost:3000/items`,{
+    method:"POST",
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(obj)
+  })
+}
 
 document.addEventListener('DOMContentLoaded', ()=>{
   fetchAllProducts()
