@@ -813,6 +813,10 @@ input:focus {
   padding-bottom: 0.25rem;
 }
 
+#category-options {
+  width: 130%;
+}
+
 .show-options {
   --tw-scale-x: 1;
   --tw-scale-y: 1;
@@ -822,6 +826,7 @@ input:focus {
 .options button {
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
+  text-transform: capitalize;
 }
 
 .options button:hover {
@@ -1060,6 +1065,10 @@ input:focus {
     order: 2;
     width: 66.666667%;
   }
+}
+
+#category-input {
+  text-transform: capitalize;
 }
 
 .quantity-input-container {

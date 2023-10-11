@@ -90,12 +90,16 @@ input{
   @apply absolute w-full top-8 flex flex-col border border-gray-200 bg-white py-1 mt-2 rounded-xl scale-0
 }
 
+#category-options{
+  @apply w-[130%] 
+}
+
 .show-options{
   @apply scale-100
 }
 
 .options button{
-  @apply py-1 hover:bg-gray-200
+  @apply py-1 hover:bg-gray-200 capitalize
 }
 
 .products-container{
@@ -190,6 +194,10 @@ input{
 
 .category-input-container{
   @apply md:order-2 flex flex-col gap-1 md:w-2/3
+}
+
+#category-input{
+  @apply capitalize
 }
 
 .quantity-input-container{
