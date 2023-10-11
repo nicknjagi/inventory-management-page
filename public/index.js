@@ -13,6 +13,8 @@ const addProductForm = document.getElementById('add-product-form')
 const submitBtn = document.getElementById('submit-btn')
 const closeAddFormBtn = document.getElementById('close-add-form')
 const productsBody = document.getElementById('products-body')
+const createBtn = document.getElementById('create-btn')
+
 
 searchForm.addEventListener('submit', (e)=> {
   e.preventDefault()
@@ -25,6 +27,20 @@ createCategoryBtn.addEventListener('click', () => {
 
 createCategoryForm.addEventListener('submit', (e) => {
   e.preventDefault()
+})
+
+createBtn.addEventListener('click', () => {
+  const formData = new FormData(createCategoryForm)
+  const values = [...formData.values()]
+
+  if (values.includes('')){
+    alert('Please enter a category')
+    return
+  }
+  console.log(formData.get('new-category'))
+  postCategory({ name: formData.get('new-category') })
+  createCategoryForm.reset()
+  alert('Category has been created.')
 })
 
 // closes create category form
@@ -117,6 +133,17 @@ function postProduct(obj){
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(obj)
+  })
+}
+
+// add category
+function postCategory(obj){
+  fetch('http://localhost:3000/categories',{
+    method:'POST',
+    headers:{
+      'Content-Type': 'application/json'
+    },
+    body:JSON.stringify(obj)
   })
 }
 
