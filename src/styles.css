@@ -35,7 +35,7 @@ form{
 }
 
 input{
-  @apply border border-gray-200 p-2 rounded-md focus:outline-0  focus:border-sky-700
+  @apply border border-gray-200 p-2 bg-slate-50 rounded-md focus:outline-0  focus:border-sky-700
 }
 
 .search-container input{
@@ -127,20 +127,17 @@ input{
 }
 
 .action-btns{
-  @apply flex items-center gap-5 px-1
+  @apply flex items-center gap-3 px-[2px]
 }
 
 .action-btns button{
   @apply p-[1px]  border border-transparent hover:border hover:border-gray-300
 }
 
-.edit-btn svg{
-  @apply w-5 text-green-400
+.edit-btn img, .delete-btn img{
+  @apply w-5
 }
 
-.delete-btn svg{
-  @apply w-5 fill-red-400
-}
 /* create-category-form */
 #create-category-form, #add-product-form{
   @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col gap-2 px-8 w-80 py-10 bg-white border border-gray-200 rounded-lg z-50 scale-0
@@ -168,7 +165,7 @@ input{
 
 /* add product form */
 #add-product-form{
-  @apply p-6 md:p-10 min-w-[300px] sm:min-w-[500px] gap-4
+  @apply p-6 md:p-10 min-w-[350px] sm:min-w-[500px] gap-4
 }
 
 #add-product-form h2{
