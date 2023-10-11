@@ -143,7 +143,7 @@ input{
 }
 /* create-category-form */
 #create-category-form, #add-product-form{
-  @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col gap-2 px-14 py-10 bg-white border border-gray-200 rounded-lg z-50 scale-0
+  @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col gap-2 px-8 w-80 py-10 bg-white border border-gray-200 rounded-lg z-50 scale-0
 }
 
 #create-category-form.show-category-form{
@@ -168,7 +168,11 @@ input{
 
 /* add product form */
 #add-product-form{
-  @apply p-6 md:p-20 min-w-[300px] sm:min-w-[500px] gap-4
+  @apply p-6 md:p-10 min-w-[300px] sm:min-w-[500px] gap-4
+}
+
+#add-product-form h2{
+  @apply text-2xl font-medium text-center mb-4
 }
 
 #add-product-form.show-product-form{
@@ -195,7 +199,7 @@ input{
   @apply flex flex-col gap-1 w-1/2 md:w-1/3
 }
 
-.form-row:nth-child(1){
+.form-row:nth-child(2){
   @apply w-full
 }
 
@@ -204,7 +208,7 @@ input{
 }
 
 #add-product-form button:nth-child(1){
-  @apply border border-green-400 w-fit px-10 py-2 rounded-lg bg-green-400 text-white hover:text-green-500 hover:bg-white
+  @apply border border-sky-700 w-fit px-10 py-2 rounded-lg bg-white hover:bg-sky-700 text-sky-700 hover:text-white  
 }
 
 /* footer */
