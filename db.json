@@ -1,0 +1,84 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "product name": "Ms",
+      "category": "skin care",
+      "quantity": 68,
+      "cost": 12.42,
+      "price": 13.29
+    },
+    {
+      "id": 2,
+      "product name": "Ms",
+      "category": "skin care",
+      "quantity": 63,
+      "cost": 934.29,
+      "price": 804
+    },
+    {
+      "id": 3,
+      "product name": "Dr",
+      "category": "skin care",
+      "quantity": 47,
+      "cost": 483.37,
+      "price": 12.66
+    },
+    {
+      "id": 4,
+      "product name": "Honorable",
+      "category": "skin care",
+      "quantity": 67,
+      "cost": 534.11,
+      "price": 200.36
+    },
+    {
+      "id": 5,
+      "product name": "Mrs",
+      "category": "skin care",
+      "quantity": 84,
+      "cost": 903.51,
+      "price": 364.12
+    },
+    {
+      "id": 6,
+      "product name": "Mr",
+      "category": "skin care",
+      "quantity": 2,
+      "cost": 589.98,
+      "price": 753.31
+    },
+    {
+      "id": 7,
+      "product name": "Mrs",
+      "category": "skin care",
+      "quantity": 77,
+      "cost": 250.81,
+      "price": 654.05
+    },
+    {
+      "id": 8,
+      "product name": "Honorable",
+      "category": "skin care",
+      "quantity": 37,
+      "cost": 863.62,
+      "price": 129.26
+    },
+    {
+      "id": 9,
+      "product name": "Rev",
+      "category": "skin care",
+      "quantity": 98,
+      "cost": 555.25,
+      "price": 795.93
+    },
+    {
+      "id": 10,
+      "product name": "Honorable",
+      "category": "skin care",
+      "quantity": 87,
+      "cost": 365.78,
+      "price": 158.93
+    }
+  ]
+}
