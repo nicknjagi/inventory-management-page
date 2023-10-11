@@ -165,6 +165,50 @@
     {
       "id": 1,
       "name": "skin care"
+    },
+    {
+      "name": "hair care",
+      "id": 3
+    },
+    {
+      "name": "lip care",
+      "id": 4
+    },
+    {
+      "name": "bath & body",
+      "id": 5
+    },
+    {
+      "name": "home fragrance",
+      "id": 6
+    },
+    {
+      "name": "beverages",
+      "id": 7
+    },
+    {
+      "name": "oral care",
+      "id": 8
+    },
+    {
+      "name": "fitness",
+      "id": 9
+    },
+    {
+      "name": "accessories",
+      "id": 10
+    },
+    {
+      "name": "home decor",
+      "id": 11
+    },
+    {
+      "name": "cooking",
+      "id": 12
+    },
+    {
+      "name": "environment",
+      "id": 13
     }
   ]
 }
