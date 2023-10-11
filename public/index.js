@@ -37,7 +37,7 @@ createBtn.addEventListener('click', () => {
     alert('Please enter a category')
     return
   }
-  console.log(formData.get('new-category'))
+
   postCategory({ name: formData.get('new-category') })
   createCategoryForm.reset()
   alert('Category has been created.')
@@ -90,6 +90,23 @@ priceBtn.addEventListener('click',() => {
   priceOptions.classList.toggle('show-options')
 })
 
+// display categories
+function displayCategories(arr){
+  const categoryOptions = document.getElementById('category-options')
+  const categoryInputOptions = document.getElementById('category-input')
+  categoryInputOptions.innerHTML = ''
+  categoryOptions.innerHTML = ''
+
+  arr.forEach(cat => {
+    const btn = document.createElement('button')
+    btn.textContent = cat.name
+    const catOpt = document.createElement('option')
+    catOpt.textContent = cat.name
+    categoryOptions.appendChild(btn)
+    categoryInputOptions.appendChild(catOpt)
+  })
+}
+
 // display products
 function displayProducts(arr,start, end){
   const prodsHtml = arr.map(item => {
@@ -116,6 +133,13 @@ function displayProducts(arr,start, end){
     `
   })
   productsBody.innerHTML = prodsHtml.slice(start, end).join('')
+}
+
+// get categories
+function getCategories() {
+  fetch('http://localhost:3000/categories')
+  .then(res => res.json())
+  .then(data => displayCategories(data))
 }
 
 // fetch products
@@ -149,4 +173,5 @@ function postCategory(obj){
 
 document.addEventListener('DOMContentLoaded', ()=>{
   fetchAllProducts()
+  getCategories()
 })
