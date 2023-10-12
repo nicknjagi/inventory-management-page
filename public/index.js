@@ -18,7 +18,6 @@ const editBtn = document.getElementById('edit-btn')
 const deleteBtn = document.getElementById('delete-btn')
 let products = []
 
-
 searchForm.addEventListener('submit', (e)=> {
   e.preventDefault()
   const formData = new FormData(searchForm)
@@ -203,9 +202,9 @@ function patchProduct(obj){
       },
       body: JSON.stringify(newObj),
     })
-    .then(()=>alert('Changes have been saved'))
     .then(()=> {
       fetchAllProducts()
+      alert('Changes have been saved')
       addProductForm.classList.remove('show-product-form', 'edit')
     })
   })
@@ -254,3 +253,15 @@ document.addEventListener('DOMContentLoaded', ()=>{
   fetchAllProducts()
   getCategories()
 })
+
+//  displays alerts
+function displayAlert(className, message){
+  const alertEl = document.getElementById('alert')
+  alertEl.classList.add(className)
+  alertEl.getElementsByTagName('p')[0].textContent = message
+
+  setTimeout(()=>{
+    alertEl.classList.remove(className)
+    alertEl.getElementsByTagName('p')[0].textContent = ''
+  }, 2000)
+}
