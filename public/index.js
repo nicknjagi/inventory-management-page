@@ -14,6 +14,8 @@ const submitBtn = document.getElementById('submit-btn')
 const closeAddFormBtn = document.getElementById('close-add-form')
 const productsBody = document.getElementById('products-body')
 const createBtn = document.getElementById('create-btn')
+const editBtn = document.getElementById('edit-btn')
+const deleteBtn = document.getElementById('delete-btn')
 
 
 searchForm.addEventListener('submit', (e)=> {
@@ -50,7 +52,9 @@ closeCategoryBtn.addEventListener('click', () => {
 
 // shows add product form
 addProductBtn.addEventListener('click',() => {
-  addProductForm.classList.add('show-product-form')
+  addProductForm.querySelector('h2').textContent = 'Add product'
+  addProductForm.classList.add('show-product-form','add')
+  addProductForm.reset()
 })
 
 addProductForm.addEventListener('submit', (e) => {
@@ -68,6 +72,7 @@ submitBtn.addEventListener('click', () => {
     alert('Please pick a category')
     return
   }
+  if (addProductForm.classList.contains('edit')) return
 
   postProduct(Object.fromEntries(formData.entries()))
   addProductForm.reset()
@@ -76,7 +81,7 @@ submitBtn.addEventListener('click', () => {
 
 // closes add product form
 closeAddFormBtn.addEventListener('click', () => {
-  addProductForm.classList.remove('show-product-form')
+  addProductForm.classList.remove('show-product-form','add','edit')
 })
 
 // show and hide filter options
@@ -94,7 +99,8 @@ priceBtn.addEventListener('click',() => {
 function displayCategories(arr){
   const categoryOptions = document.getElementById('category-options')
   const categoryInputOptions = document.getElementById('category-input')
-  categoryInputOptions.innerHTML = ''
+  categoryInputOptions.innerHTML =
+    '<option class="hidden" value="choose category">Choose a category</option>'
   categoryOptions.innerHTML = ''
 
   arr.forEach(cat => {
@@ -102,6 +108,7 @@ function displayCategories(arr){
     btn.textContent = cat.name
     const catOpt = document.createElement('option')
     catOpt.textContent = cat.name
+    catOpt.value = cat.name.toLowerCase()
     categoryOptions.appendChild(btn)
     categoryInputOptions.appendChild(catOpt)
   })
@@ -113,26 +120,64 @@ function displayProducts(arr,start, end){
     const {id, productName, category, quantity, cost, price} = item
     return `
       <tr>
-            <td>${productName}</td>
-            <td>${category}</td>
-            <td>${quantity}</td>
-            <td>$ ${cost}</td>
-            <td>$ ${price}</td>
-            <td>${quantity > 0 ? 'Active' : 'Inactive'}</td>
-            <td>
-              <div class="action-btns">
-                <button class="edit-btn" aria-label="edit">
-                  <img src="assets/images/pencil.svg" alt="pencil icon">
-                </button>
-                <button class="delete-btn" aria-label="delete">
-                  <img src="assets/images/trash.svg" alt="trash icon">
-                </button>
-              </div>
-            </td>
-          </tr>
+        <td>${productName}</td>
+        <td>${category}</td>
+        <td>${quantity}</td>
+        <td>$ ${cost}</td>
+        <td>$ ${price}</td>
+        <td>${quantity > 0 ? 'Active' : 'Inactive'}</td>
+        <td>
+          <div class="action-btns">
+            <button class="edit-btn" onclick="editProduct(${id})" aria-label="edit">
+              <img src="assets/images/pencil.svg" alt="pencil icon">
+            </button>
+            <button class="delete-btn" onclick="deleteProduct(${id})" aria-label="delete">
+              <img src="assets/images/trash.svg" alt="trash icon">
+            </button>
+          </div>
+        </td>
+      </tr>
     `
   })
   productsBody.innerHTML = prodsHtml.slice(start, end).join('')
+}
+
+function editProduct(id){
+  fetch(`http://localhost:3000/items/${id}`)
+  .then(res => res.json())
+  .then(data => patchProduct(data))
+}
+
+function patchProduct(obj){
+  addProductForm.classList.add('show-product-form','edit')
+  addProductForm.querySelector('h2').textContent = 'Edit product'
+  const {id, productName, category, quantity, cost, price} = obj
+  // display current product values
+  document.getElementById('category-name').value = productName
+  document.getElementById('category-input').value = category.toLowerCase()
+  document.getElementById('quantity-input').value = quantity
+  document.getElementById('cost-input').value = cost
+  document.getElementById('price-input').value = price
+ 
+  // patch the data when edit button is clicked
+  document.getElementById('edit-submit-btn').addEventListener('click', ()=>{
+    // get the values of the form
+    const formData = new FormData(addProductForm)
+    const newObj = Object.fromEntries(formData.entries())
+
+    fetch(`http://localhost:3000/items/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newObj),
+    })
+    .then(()=>alert('Changes have been saved'))
+    .then(()=> {
+      fetchAllProducts()
+      addProductForm.classList.remove('show-product-form', 'edit')
+    })
+  })
 }
 
 // get categories
