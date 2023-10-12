@@ -16,10 +16,18 @@ const productsBody = document.getElementById('products-body')
 const createBtn = document.getElementById('create-btn')
 const editBtn = document.getElementById('edit-btn')
 const deleteBtn = document.getElementById('delete-btn')
+let products = []
 
 
 searchForm.addEventListener('submit', (e)=> {
   e.preventDefault()
+  const formData = new FormData(searchForm)
+  if(Array.from(formData.values()).includes('')){
+    alert('Please enter a word to search')
+    return
+  }
+  const results = products.filter((prod) => prod.productName.toLowerCase().includes(formData.get('search').toLowerCase()))
+  displayProducts(results)
 })
 
 // shows create category form
@@ -145,6 +153,7 @@ function displayProducts(arr,start, end){
 
 function deleteProduct(id){
   const response = prompt('Are you sure you want to delete? (yes/no)')
+  if(response == null) return
   if(response.toLowerCase() === 'yes' || response.toLowerCase() === 'y'){
     fetch(`http://localhost:3000/items/${id}`,{
       method:'DELETE'
@@ -205,7 +214,10 @@ function getCategories() {
 function fetchAllProducts(start=0,end=10){
   fetch('http://localhost:3000/items')
   .then(res => res.json())
-  .then(data => displayProducts(data,start,end))
+  .then(data => {
+    displayProducts(data, start, end)
+    products = [...data]
+  })
 }
 
 // add product using POST
