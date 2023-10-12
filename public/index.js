@@ -60,6 +60,7 @@ addProductBtn.addEventListener('click',() => {
 addProductForm.addEventListener('submit', (e) => {
   e.preventDefault()
 })
+
 submitBtn.addEventListener('click', () => {
   const formData = new FormData(addProductForm)
   const values = [...formData.values()]
@@ -142,6 +143,19 @@ function displayProducts(arr,start, end){
   productsBody.innerHTML = prodsHtml.slice(start, end).join('')
 }
 
+function deleteProduct(id){
+  const response = prompt('Are you sure you want to delete? (yes/no)')
+  if(response.toLowerCase() === 'yes' || response.toLowerCase() === 'y'){
+    fetch(`http://localhost:3000/items/${id}`,{
+      method:'DELETE'
+    })
+    .then(() => {
+      fetchAllProducts()
+      alert('Item has been deleted.')
+    })
+  }
+}
+
 function editProduct(id){
   fetch(`http://localhost:3000/items/${id}`)
   .then(res => res.json())
@@ -161,7 +175,7 @@ function patchProduct(obj){
  
   // patch the data when edit button is clicked
   document.getElementById('edit-submit-btn').addEventListener('click', ()=>{
-    // get the values of the form
+    // get the new values of the form
     const formData = new FormData(addProductForm)
     const newObj = Object.fromEntries(formData.entries())
 
