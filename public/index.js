@@ -22,7 +22,7 @@ searchForm.addEventListener('submit', (e)=> {
   e.preventDefault()
   const formData = new FormData(searchForm)
   if(Array.from(formData.values()).includes('')){
-    alert('Please enter a word to search')
+    displayAlert('warn','Please enter a word to search')
     return
   }
   const results = products.filter((prod) => prod.productName.toLowerCase().includes(formData.get('search').toLowerCase()))
@@ -43,13 +43,13 @@ createBtn.addEventListener('click', () => {
   const values = [...formData.values()]
 
   if (values.includes('')){
-    alert('Please enter a category')
+    displayAlert('warn','Please enter a category')
     return
   }
 
   postCategory({ name: formData.get('new-category') })
   createCategoryForm.reset()
-  alert('Category has been created.')
+  createCategoryForm.classList.remove('show-category-form')
 })
 
 // closes create category form
@@ -73,18 +73,20 @@ submitBtn.addEventListener('click', () => {
   const values = [...formData.values()]
 
   if (values.includes('')){
-    alert('Please enter all values')
+    displayAlert('warn','Please enter all values')
     return
   }
   if (formData.get('category').toLowerCase() == 'choose category'){
-    alert('Please pick a category')
+    displayAlert('warn','Please pick a category')
     return
   }
   if (addProductForm.classList.contains('edit')) return
 
   postProduct(Object.fromEntries(formData.entries()))
   addProductForm.reset()
-  alert('Item added.')
+  displayAlert('green','Item added.')
+  addProductForm.classList.remove('show-product-form', 'add')
+  fetchAllProducts()
 })
 
 // closes add product form
@@ -167,7 +169,7 @@ function deleteProduct(id){
     })
     .then(() => {
       fetchAllProducts()
-      alert('Item has been deleted.')
+      displayAlert('neutral','Item has been deleted.')
     })
   }
 }
@@ -194,17 +196,16 @@ function patchProduct(obj){
     // get the new values of the form
     const formData = new FormData(addProductForm)
     const newObj = Object.fromEntries(formData.entries())
-
+    
     fetch(`http://localhost:3000/items/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(newObj),
-    })
-    .then(()=> {
+    }).then(() => {
       fetchAllProducts()
-      alert('Changes have been saved')
+      displayAlert('green', 'Changes have been saved')
       addProductForm.classList.remove('show-product-form', 'edit')
     })
   })
@@ -240,13 +241,13 @@ function postProduct(obj){
 
 // add category
 function postCategory(obj){
-  fetch('http://localhost:3000/categories',{
-    method:'POST',
-    headers:{
-      'Content-Type': 'application/json'
+  fetch('http://localhost:3000/categories', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
     },
-    body:JSON.stringify(obj)
-  })
+    body: JSON.stringify(obj),
+  }).then(() => displayAlert('green', 'Category has been created.'))
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -259,9 +260,12 @@ function displayAlert(className, message){
   const alertEl = document.getElementById('alert')
   alertEl.classList.add(className)
   alertEl.getElementsByTagName('p')[0].textContent = message
+  alertEl.getElementsByTagName('button')[0].addEventListener('click', ()=>{
+    alertEl.classList.remove(className)
+  })
 
   setTimeout(()=>{
     alertEl.classList.remove(className)
     alertEl.getElementsByTagName('p')[0].textContent = ''
-  }, 2000)
+  }, 2500)
 }
