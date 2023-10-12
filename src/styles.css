@@ -87,11 +87,11 @@ input{
 }
 
 .options{
-  @apply absolute w-full top-8 flex flex-col border border-gray-300 bg-white py-1 mt-2 rounded-xl scale-0
+  @apply absolute w-full max-h-[200px] top-8 flex flex-col border border-gray-300 bg-white py-1 mt-2 rounded-xl scale-0 
 }
 
 #category-options{
-  @apply w-[130%] 
+  @apply w-[130%] overflow-y-scroll rounded-tr-none rounded-br-none
 }
 
 .show-options{

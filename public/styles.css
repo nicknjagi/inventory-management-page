@@ -798,6 +798,7 @@ input:focus {
   top: 2rem;
   margin-top: 0.5rem;
   display: flex;
+  max-height: 200px;
   width: 100%;
   --tw-scale-x: 0;
   --tw-scale-y: 0;
@@ -815,6 +816,9 @@ input:focus {
 
 #category-options {
   width: 130%;
+  overflow-y: scroll;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 .show-options {
