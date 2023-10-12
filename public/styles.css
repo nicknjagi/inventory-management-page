@@ -981,14 +981,14 @@ input:focus {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.close-category-form-btn, .add-form-btns button:nth-child(2) {
+.close-category-form-btn, .add-form-btns button:nth-child(3) {
   padding: 0.5rem;
   --tw-text-opacity: 1;
   color: rgb(153 27 27 / var(--tw-text-opacity));
   text-underline-offset: 4px;
 }
 
-.close-category-form-btn:hover, .add-form-btns button:nth-child(2):hover {
+.close-category-form-btn:hover, .add-form-btns button:nth-child(3):hover {
   --tw-text-opacity: 1;
   color: rgb(248 113 113 / var(--tw-text-opacity));
   text-decoration-line: underline;
@@ -1095,7 +1095,8 @@ input:focus {
   justify-content: space-between;
 }
 
-#add-product-form button:nth-child(1) {
+#add-product-form button:not(:nth-child(3)) {
+  display: none;
   width: -moz-fit-content;
   width: fit-content;
   border-radius: 0.5rem;
@@ -1112,11 +1113,19 @@ input:focus {
   color: rgb(3 105 161 / var(--tw-text-opacity));
 }
 
-#add-product-form button:nth-child(1):hover {
+#add-product-form button:not(:nth-child(3)):hover {
   --tw-bg-opacity: 1;
   background-color: rgb(3 105 161 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+#add-product-form.edit button:nth-child(2) {
+  display: inline-block;
+}
+
+#add-product-form.add button:nth-child(1) {
+  display: inline-block;
 }
 
 /* footer */
