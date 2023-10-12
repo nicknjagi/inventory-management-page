@@ -104,6 +104,13 @@ priceBtn.addEventListener('click',() => {
   priceOptions.classList.toggle('show-options')
 })
 
+// filter using category name
+function filterCategory(name){
+  const catItems = products.filter(prod => prod.category.toLowerCase() == name)
+  displayProducts(catItems)
+  categoryOptions.classList.toggle('show-options')
+}
+
 // display categories
 function displayCategories(arr){
   const categoryOptions = document.getElementById('category-options')
@@ -115,6 +122,7 @@ function displayCategories(arr){
   arr.forEach(cat => {
     const btn = document.createElement('button')
     btn.textContent = cat.name
+    btn.setAttribute('onclick',`filterCategory("${cat.name}")`)
     const catOpt = document.createElement('option')
     catOpt.textContent = cat.name
     catOpt.value = cat.name.toLowerCase()
