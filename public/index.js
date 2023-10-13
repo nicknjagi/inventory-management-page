@@ -164,7 +164,7 @@ function deleteProduct(id){
   const response = prompt('Are you sure you want to delete? (yes/no)')
   if(response == null) return
   if(response.toLowerCase() === 'yes' || response.toLowerCase() === 'y'){
-    fetch(`http://localhost:3000/items/${id}`,{
+    fetch(`https://inventory-management-api-7wjf.onrender.com/items/${id}`,{
       method:'DELETE'
     })
     .then(() => {
@@ -175,7 +175,7 @@ function deleteProduct(id){
 }
 
 function editProduct(id){
-  fetch(`http://localhost:3000/items/${id}`)
+  fetch(`https://inventory-management-api-7wjf.onrender.com/items/${id}`)
   .then(res => res.json())
   .then(data => patchProduct(data))
 }
@@ -197,7 +197,7 @@ function patchProduct(obj){
     const formData = new FormData(addProductForm)
     const newObj = Object.fromEntries(formData.entries())
     
-    fetch(`http://localhost:3000/items/${id}`, {
+    fetch(`https://inventory-management-api-7wjf.onrender.com/items/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -213,14 +213,14 @@ function patchProduct(obj){
 
 // get categories
 function getCategories() {
-  fetch('http://localhost:3000/categories')
+  fetch('https://inventory-management-api-7wjf.onrender.com/categories')
   .then(res => res.json())
   .then(data => displayCategories(data))
 }
 
 // fetch products
 function fetchAllProducts(start=0,end=10){
-  fetch('http://localhost:3000/items')
+  fetch('https://inventory-management-api-7wjf.onrender.com/items')
   .then(res => res.json())
   .then(data => {
     displayProducts(data, start, end)
@@ -230,7 +230,7 @@ function fetchAllProducts(start=0,end=10){
 
 // add product using POST
 function postProduct(obj){
-  fetch(`http://localhost:3000/items`,{
+  fetch(`https://inventory-management-api-7wjf.onrender.com/items`,{
     method:"POST",
     headers: {
       'Content-Type': 'application/json'
@@ -241,7 +241,7 @@ function postProduct(obj){
 
 // add category
 function postCategory(obj){
-  fetch('http://localhost:3000/categories', {
+  fetch('https://inventory-management-api-7wjf.onrender.com/categories', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
