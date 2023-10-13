@@ -16,6 +16,7 @@ const productsBody = document.getElementById('products-body')
 const createBtn = document.getElementById('create-btn')
 const editBtn = document.getElementById('edit-btn')
 const deleteBtn = document.getElementById('delete-btn')
+const clearFilterBtn = document.getElementById('clear-filter')
 let products = []
 
 searchForm.addEventListener('submit', (e)=> {
@@ -110,7 +111,14 @@ function filterCategory(name){
   const catItems = products.filter(prod => prod.category.toLowerCase() == name)
   displayProducts(catItems)
   categoryOptions.classList.toggle('show-options')
+  clearFilterBtn.classList.add('show')
 }
+
+// remove filter
+clearFilterBtn.addEventListener('click',()=>{
+  fetchAllProducts()
+  clearFilterBtn.classList.remove('show')
+})
 
 // display categories
 function displayCategories(arr){
