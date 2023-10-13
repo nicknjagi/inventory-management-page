@@ -23,7 +23,7 @@ header img{
 }
 
 #alert{
-  @apply absolute top-14 left-1/2 -translate-x-1/2 z-50 flex justify-between w-full max-w-xl mx-auto py-6 px-8 text-center font-medium rounded-md scale-0
+  @apply fixed top-14 left-1/2 -translate-x-1/2 z-50 flex justify-between w-full max-w-xl mx-auto py-6 px-8 text-center font-medium rounded-md scale-0
 }
 
 #alert.green {
@@ -168,6 +168,18 @@ input{
 
 .edit-btn img, .delete-btn img{
   @apply w-5
+}
+
+.pagination{
+  @apply max-w-7xl mx-auto my-4
+}
+
+.pagination div{
+  @apply flex gap-4 justify-end
+}
+
+.pagination button{
+  @apply border border-gray-400 px-2
 }
 
 /* create-category-form */

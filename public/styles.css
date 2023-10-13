@@ -632,7 +632,7 @@ header img {
 }
 
 #alert {
-  position: absolute;
+  position: fixed;
   top: 3.5rem;
   left: 50%;
   z-index: 50;
