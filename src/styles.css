@@ -122,6 +122,14 @@ input{
   @apply py-1 hover:bg-gray-200 capitalize
 }
 
+#clear-filter{
+  @apply py-1 px-3 border border-gray-300 bg-sky-700 hover:bg-sky-900 text-white rounded-xl text-sm scale-0
+}
+
+#clear-filter.show{
+  @apply scale-100
+}
+
 .products-container{
   @apply max-w-7xl mx-auto overflow-x-scroll
 }
