@@ -997,6 +997,28 @@ input:focus {
   width: 1.25rem;
 }
 
+.pagination {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  max-width: 80rem;
+}
+
+.pagination div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.pagination button {
+  border-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 /* create-category-form */
 
 #create-category-form, #add-product-form {
