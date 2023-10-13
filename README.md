@@ -1,4 +1,4 @@
-# Inventory Management page
+# Inventory Management app
 
 This is an app that allows a user to manage inventory of his/her store.
 
@@ -7,21 +7,15 @@ This is an app that allows a user to manage inventory of his/her store.
 - Semantic HTML5 markup
 - Tailwind CSS 
 - JavaScript
-- Flexbox
+- Ionicons
 
-## Setup
+## setup
 
-Run this command to get the backend started:
+The site has been deployed. Open the live site and wait for the content to load. (The server spins down due to inactivity so please be patient.)
 
-```sh
-json-server --watch db.json
-```
+## Links
 
-Test your server by visiting this route in the browser:
-
-[http://localhost:3000/items](http://localhost:3000/items)
-
-Then, open the `index.html` file on your browser to run the application.
+- Live site - [view](https://phase1project.netlify.app)
 
 ## Users are able to:
 
