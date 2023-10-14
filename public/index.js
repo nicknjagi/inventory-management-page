@@ -17,17 +17,30 @@ const createBtn = document.getElementById('create-btn')
 const editBtn = document.getElementById('edit-btn')
 const deleteBtn = document.getElementById('delete-btn')
 const clearFilterBtn = document.getElementById('clear-filter')
+const prevBtn = document.getElementById('prev-btn')
+const nextBtn = document.getElementById('next-btn')
+let currentPage = 1
+let totalPages 
 let products = []
+
+// const url = 'https://inventory-management-api-7wjf.onrender.com'
+const url	= 'http://localhost:3000'
 
 searchForm.addEventListener('submit', (e)=> {
   e.preventDefault()
   const formData = new FormData(searchForm)
-  if(Array.from(formData.values()).includes('')){
-    displayAlert('warn','Please enter a word to search')
+  if (Array.from(formData.values()).includes('')) {
+    displayAlert('warn', 'Please enter a word to search')
     return
   }
-  const results = products.filter((prod) => prod.productName.toLowerCase().includes(formData.get('search').toLowerCase()))
+  const results = products.filter((prod) =>
+    prod.productName
+      .toLowerCase()
+      .includes(formData.get('search').toLowerCase())
+  )
   displayProducts(results)
+  searchForm.reset()
+  document.getElementById('page-tracker').innerText = `1`
 })
 
 // shows create category form
@@ -87,6 +100,7 @@ submitBtn.addEventListener('click', () => {
   addProductForm.reset()
   displayAlert('green','Item added.')
   addProductForm.classList.remove('show-product-form', 'add')
+  currentPage = 1
   fetchAllProducts()
 })
 
@@ -168,14 +182,35 @@ function displayProducts(arr,start, end){
   productsBody.innerHTML = prodsHtml.slice(start, end).join('')
 }
 
+// handle next button click
+nextBtn.addEventListener('click', () => {
+  if(products.length > 0){
+    if (currentPage < totalPages){
+      fetchAllProducts(currentPage * 10, (currentPage * 10 + 10))
+      currentPage++
+    }
+  }
+})
+
+// handle previous button click
+prevBtn.addEventListener('click', () => {
+  if(products.length > 0){
+    if (currentPage > 1){
+      currentPage--
+      fetchAllProducts((currentPage * 10 -10), currentPage * 10)
+    }
+  }
+})
+
 function deleteProduct(id){
   const response = prompt('Are you sure you want to delete? (yes/no)')
   if(response == null) return
   if(response.toLowerCase() === 'yes' || response.toLowerCase() === 'y'){
-    fetch(`https://inventory-management-api-7wjf.onrender.com/items/${id}`,{
+    fetch(`${url}/items/${id}`,{
       method:'DELETE'
     })
     .then(() => {
+      currentPage= 1
       fetchAllProducts()
       displayAlert('neutral','Item has been deleted.')
     })
@@ -183,7 +218,7 @@ function deleteProduct(id){
 }
 
 function editProduct(id){
-  fetch(`https://inventory-management-api-7wjf.onrender.com/items/${id}`)
+  fetch(`${url}/items/${id}`)
   .then(res => res.json())
   .then(data => patchProduct(data))
 }
@@ -205,13 +240,14 @@ function patchProduct(obj){
     const formData = new FormData(addProductForm)
     const newObj = Object.fromEntries(formData.entries())
     
-    fetch(`https://inventory-management-api-7wjf.onrender.com/items/${id}`, {
+    fetch(`${url}/items/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(newObj),
     }).then(() => {
+      currentPage = 1
       fetchAllProducts()
       displayAlert('green', 'Changes have been saved')
       addProductForm.classList.remove('show-product-form', 'edit')
@@ -221,41 +257,48 @@ function patchProduct(obj){
 
 // get categories
 function getCategories() {
-  fetch('https://inventory-management-api-7wjf.onrender.com/categories')
+  fetch(`${url}/categories`)
   .then(res => res.json())
   .then(data => displayCategories(data))
 }
 
 // fetch products
 function fetchAllProducts(start=0,end=10){
-  fetch('https://inventory-management-api-7wjf.onrender.com/items')
+  fetch(`${url}/items`)
   .then(res => res.json())
   .then(data => {
     displayProducts(data, start, end)
     products = [...data]
+    totalPages = Math.ceil(products.length / 10)
+    document.getElementById('page-tracker').innerText = `${currentPage} of ${totalPages}`
   })
 }
 
 // add product using POST
 function postProduct(obj){
-  fetch(`https://inventory-management-api-7wjf.onrender.com/items`,{
+  fetch(`${url}/items`,{
     method:"POST",
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(obj)
   })
+  .then(() => fetchAllProducts())
 }
 
 // add category
 function postCategory(obj){
-  fetch('https://inventory-management-api-7wjf.onrender.com/categories', {
+  fetch(`${url}/categories`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(obj),
-  }).then(() => displayAlert('green', 'Category has been created.'))
+  })
+  .then(() =>{
+    displayAlert('green', 'Category has been created.')
+    getCategories()
+  })
 }
 
 document.addEventListener('DOMContentLoaded', ()=>{
@@ -277,3 +320,4 @@ function displayAlert(className, message){
     alertEl.getElementsByTagName('p')[0].textContent = ''
   }, 2500)
 }
+
