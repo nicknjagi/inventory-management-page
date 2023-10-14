@@ -131,7 +131,7 @@ input{
 }
 
 .products-container{
-  @apply max-w-7xl mx-auto overflow-x-scroll
+  @apply max-w-7xl mx-auto overflow-x-scroll pb-4
 }
 
 .products-container::-webkit-scrollbar{
@@ -179,7 +179,7 @@ input{
 }
 
 .pagination{
-  @apply max-w-7xl mx-auto my-8
+  @apply max-w-7xl mx-auto mt-4 mb-7
 }
 
 .pagination div{
@@ -196,11 +196,11 @@ input{
 
 /* create-category-form */
 #create-category-form, #add-product-form{
-  @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col gap-2 px-8 w-80 py-10 bg-white border border-gray-300 rounded-lg z-30 scale-0 drop-shadow-2xl
+  @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col gap-2 px-8 w-80 py-10 bg-white border border-gray-300 rounded-lg z-30 scale-0 drop-shadow-2xl opacity-0 transition duration-200 origin-top-right
 }
 
-#create-category-form.show-category-form{
-  @apply scale-100
+#create-category-form.show-category-form,#add-product-form.show-product-form{
+  @apply scale-100 opacity-100
 }
 
 #create-category-form::after, #add-product-form::after{
