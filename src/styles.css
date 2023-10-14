@@ -147,7 +147,7 @@ input{
 }
 
 #products{
-  @apply w-full min-w-[800px] border-collapse 
+  @apply w-full min-w-[800px] border-collapse capitalize
 }
 
 #products thead tr th, #products-body tr td{
