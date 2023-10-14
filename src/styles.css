@@ -179,7 +179,7 @@ input{
 }
 
 .pagination button{
-  @apply border border-gray-400 px-2
+  @apply border rounded border-gray-400 px-2 hover:bg-gray-200
 }
 
 /* create-category-form */

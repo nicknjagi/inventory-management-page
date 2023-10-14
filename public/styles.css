@@ -1012,11 +1012,17 @@ input:focus {
 }
 
 .pagination button {
+  border-radius: 0.25rem;
   border-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
   padding-left: 0.5rem;
   padding-right: 0.5rem;
+}
+
+.pagination button:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
 /* create-category-form */
