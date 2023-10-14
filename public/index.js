@@ -135,6 +135,7 @@ priceBtn.addEventListener('click',() => {
 function filterCategory(name){
   const catItems = products.filter(prod => prod.category.toLowerCase() == name)
   displayProducts(catItems)
+  pageTracker.innerText = '1'
   categoryOptions.classList.toggle('show-options')
   clearFilterBtn.classList.add('show')
 }
@@ -277,6 +278,7 @@ function getCategories() {
 // fetch products
 function fetchAllProducts(start=0,end=10){
   // loader.classList.add('show')
+  clearFilterBtn.classList.remove('show')
   fetch(`${url}/items`)
   .then(res => res.json())
   .then(data => {
