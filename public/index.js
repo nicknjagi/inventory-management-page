@@ -172,6 +172,7 @@ function displayProducts(arr,start, end){
     return `
       <tr>
         <td>${productName.toLowerCase()}</td>
+        <td>PR0${id}</td>
         <td>${category}</td>
         <td>${quantity}</td>
         <td>$ ${cost}</td>
