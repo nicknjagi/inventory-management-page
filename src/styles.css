@@ -170,6 +170,14 @@ input{
   @apply w-5
 }
 
+#loader{
+  @apply h-10 w-10 mx-auto scale-0
+}
+
+#loader.show{
+  @apply scale-100
+}
+
 .pagination{
   @apply max-w-7xl mx-auto my-4
 }

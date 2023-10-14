@@ -19,6 +19,7 @@ const deleteBtn = document.getElementById('delete-btn')
 const clearFilterBtn = document.getElementById('clear-filter')
 const prevBtn = document.getElementById('prev-btn')
 const nextBtn = document.getElementById('next-btn')
+const loader = document.getElementById('loader')
 let currentPage = 1
 let totalPages 
 let products = []
@@ -264,9 +265,11 @@ function getCategories() {
 
 // fetch products
 function fetchAllProducts(start=0,end=10){
+  loader.classList.add('show')
   fetch(`${url}/items`)
   .then(res => res.json())
   .then(data => {
+    loader.classList.remove('show')
     displayProducts(data, start, end)
     products = [...data]
     totalPages = Math.ceil(products.length / 10)
