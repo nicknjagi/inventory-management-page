@@ -154,7 +154,7 @@ input{
   @apply py-2 border-y border-gray-300 text-left
 }
 
-#products-body tr td:nth-child(3){
+#products-body tr td:nth-child(4){
   @apply pl-8
 }
 
@@ -163,11 +163,11 @@ input{
 }
 
 .action-btns button{
-  @apply p-[1px]  border border-transparent hover:border hover:border-gray-300
+  @apply p-[1px]  border border-transparent hover:border hover:border-gray-400
 }
 
 .edit-btn img, .delete-btn img{
-  @apply w-5
+  @apply w-4
 }
 
 #loader{
@@ -183,15 +183,11 @@ input{
 }
 
 .pagination div{
-  @apply flex gap-4 justify-end h-7
+  @apply flex gap-4 justify-end items-center 
 }
 
-.pagination button{
-  @apply border rounded border-gray-400 px-2 hover:bg-gray-200 
-}
-
-#page-tracker {
-  @apply mb-4
+.pagination button img{
+  @apply w-6 border border-transparent hover:border-gray-400
 }
 
 #page-tracker a {

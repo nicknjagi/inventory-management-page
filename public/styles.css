@@ -975,7 +975,7 @@ input:focus {
   text-align: left;
 }
 
-#products-body tr td:nth-child(3) {
+#products-body tr td:nth-child(4) {
   padding-left: 2rem;
 }
 
@@ -996,11 +996,11 @@ input:focus {
 .action-btns button:hover {
   border-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgb(209 213 219 / var(--tw-border-opacity));
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
 
 .edit-btn img, .delete-btn img {
-  width: 1.25rem;
+  width: 1rem;
 }
 
 #loader {
@@ -1031,27 +1031,20 @@ input:focus {
 
 .pagination div {
   display: flex;
-  height: 1.75rem;
+  align-items: center;
   justify-content: flex-end;
   gap: 1rem;
 }
 
-.pagination button {
-  border-radius: 0.25rem;
+.pagination button img {
+  width: 1.5rem;
   border-width: 1px;
+  border-color: transparent;
+}
+
+.pagination button img:hover {
   --tw-border-opacity: 1;
   border-color: rgb(156 163 175 / var(--tw-border-opacity));
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-}
-
-.pagination button:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
-}
-
-#page-tracker {
-  margin-bottom: 1rem;
 }
 
 #page-tracker a {
