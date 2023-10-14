@@ -24,8 +24,8 @@ let currentPage = 1
 let totalPages 
 let products = []
 
-// const url = 'https://inventory-management-api-7wjf.onrender.com'
-const url	= 'http://localhost:3000'
+const url = 'https://inventory-management-api-7wjf.onrender.com'
+// const url	= 'http://localhost:3000' /*for dev*/
 
 searchForm.addEventListener('submit', (e)=> {
   e.preventDefault()
