@@ -163,7 +163,7 @@ input{
 }
 
 .action-btns button{
-  @apply p-[1px]  border border-transparent hover:border hover:border-gray-400
+  @apply p-[1px]  border border-transparent hover:border hover:border-gray-400 focus:border-sky-400
 }
 
 .edit-btn img, .delete-btn img{
@@ -196,7 +196,7 @@ input{
 
 /* create-category-form */
 #create-category-form, #add-product-form{
-  @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col gap-2 px-8 w-80 py-10 bg-white border border-gray-300 rounded-lg z-30 scale-0 drop-shadow-2xl opacity-0 transition duration-200 origin-top-right
+  @apply absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 flex flex-col gap-2 px-8 w-80 py-10 bg-white border border-gray-300 rounded-lg z-30 scale-0 drop-shadow-2xl opacity-0 transition 
 }
 
 #create-category-form.show-category-form,#add-product-form.show-product-form{
