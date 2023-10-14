@@ -958,7 +958,7 @@ input:focus {
   background-color: rgb(3 105 161 / var(--tw-bg-opacity));
 }
 
-#products {
+#products:not(p) {
   width: 100%;
   min-width: 800px;
   border-collapse: collapse;
@@ -1006,8 +1006,6 @@ input:focus {
 #loader {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 6rem;
-  margin-bottom: 6rem;
   height: 2.5rem;
   width: 2.5rem;
   --tw-scale-x: 0;
@@ -1016,6 +1014,8 @@ input:focus {
 }
 
 #loader.show {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   --tw-scale-x: 1;
   --tw-scale-y: 1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1024,13 +1024,14 @@ input:focus {
 .pagination {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   max-width: 80rem;
 }
 
 .pagination div {
   display: flex;
+  height: 1.75rem;
   justify-content: flex-end;
   gap: 1rem;
 }
@@ -1047,6 +1048,15 @@ input:focus {
 .pagination button:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
+}
+
+#page-tracker {
+  margin-bottom: 1rem;
+}
+
+#page-tracker a {
+  --tw-text-opacity: 1;
+  color: rgb(7 89 133 / var(--tw-text-opacity));
 }
 
 /* create-category-form */

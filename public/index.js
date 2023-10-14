@@ -20,6 +20,7 @@ const clearFilterBtn = document.getElementById('clear-filter')
 const prevBtn = document.getElementById('prev-btn')
 const nextBtn = document.getElementById('next-btn')
 const loader = document.getElementById('loader')
+const pageTracker = document.getElementById('page-tracker')
 let currentPage = 1
 let totalPages 
 let products = []
@@ -39,9 +40,18 @@ searchForm.addEventListener('submit', (e)=> {
       .toLowerCase()
       .includes(formData.get('search').toLowerCase())
   )
-  displayProducts(results)
-  searchForm.reset()
-  document.getElementById('page-tracker').innerText = `1`
+  if (results.length > 0){
+    displayProducts(results)
+    pageTracker.innerText = `1`
+    searchForm.reset()
+  } else {
+    document.querySelector('.products-container').innerHTML = `
+      <p id='page-tracker'>No products found. 
+        <a href="" onclick="fetchAllProducts()">Home</a>
+      </p>
+    `
+    pageTracker.innerText = ''
+  }
 })
 
 // shows create category form
@@ -265,7 +275,7 @@ function getCategories() {
 
 // fetch products
 function fetchAllProducts(start=0,end=10){
-  loader.classList.add('show')
+  // loader.classList.add('show')
   fetch(`${url}/items`)
   .then(res => res.json())
   .then(data => {
@@ -273,7 +283,7 @@ function fetchAllProducts(start=0,end=10){
     displayProducts(data, start, end)
     products = [...data]
     totalPages = Math.ceil(products.length / 10)
-    document.getElementById('page-tracker').innerText = `${currentPage} of ${totalPages}`
+    pageTracker.innerText = `${currentPage} of ${totalPages}`
   })
 }
 

@@ -2,14 +2,6 @@
   "items": [
     {
       "id": 1,
-      "productName": "Antioxidant Serum",
-      "category": "Skin Care",
-      "quantity": 68,
-      "cost": 12.42,
-      "price": 13.29
-    },
-    {
-      "id": 2,
       "productName": "Tea Tree Face Wash",
       "category": "skin care",
       "quantity": "6",
@@ -83,10 +75,10 @@
     {
       "id": 12,
       "productName": "Yoga Mat",
-      "category": "Fitness",
-      "quantity": 15,
-      "cost": 18.99,
-      "price": 24.99
+      "category": "fitness",
+      "quantity": "15",
+      "cost": "18.99",
+      "price": "24.99"
     },
     {
       "id": 13,
@@ -151,6 +143,14 @@
       "quantity": 48,
       "cost": 10.99,
       "price": 12.99
+    },
+    {
+      "productName": "laptop",
+      "category": "electronics",
+      "quantity": "7",
+      "cost": "1000",
+      "price": "1500",
+      "id": 21
     }
   ],
   "categories": [
@@ -201,6 +201,10 @@
     {
       "name": "environment",
       "id": 13
+    },
+    {
+      "name": "electronics",
+      "id": 14
     }
   ]
 }

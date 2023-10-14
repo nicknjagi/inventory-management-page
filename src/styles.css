@@ -146,7 +146,7 @@ input{
   @apply bg-sky-700 rounded-md 
 }
 
-#products{
+#products:not(p){
   @apply w-full min-w-[800px] border-collapse capitalize
 }
 
@@ -171,23 +171,31 @@ input{
 }
 
 #loader{
-  @apply h-10 w-10 mx-auto scale-0 my-24
+  @apply h-10 w-10 mx-auto scale-0 
 }
 
 #loader.show{
-  @apply scale-100
+  @apply scale-100 my-4
 }
 
 .pagination{
-  @apply max-w-7xl mx-auto my-4
+  @apply max-w-7xl mx-auto my-8
 }
 
 .pagination div{
-  @apply flex gap-4 justify-end
+  @apply flex gap-4 justify-end h-7
 }
 
 .pagination button{
-  @apply border rounded border-gray-400 px-2 hover:bg-gray-200
+  @apply border rounded border-gray-400 px-2 hover:bg-gray-200 
+}
+
+#page-tracker {
+  @apply mb-4
+}
+
+#page-tracker a {
+  @apply text-sky-800
 }
 
 /* create-category-form */
