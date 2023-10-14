@@ -653,6 +653,11 @@ header img {
   padding-right: 2rem;
   text-align: center;
   font-weight: 500;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
 }
 
 #alert.green {
@@ -1001,6 +1006,8 @@ input:focus {
 #loader {
   margin-left: auto;
   margin-right: auto;
+  margin-top: 6rem;
+  margin-bottom: 6rem;
   height: 2.5rem;
   width: 2.5rem;
   --tw-scale-x: 0;

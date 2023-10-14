@@ -23,7 +23,7 @@ header img{
 }
 
 #alert{
-  @apply fixed top-14 left-1/2 -translate-x-1/2 z-50 flex justify-between w-full max-w-xl mx-auto py-6 px-8 text-center font-medium rounded-md scale-0
+  @apply fixed top-14 left-1/2 -translate-x-1/2 z-50 flex justify-between w-full max-w-xl mx-auto py-6 px-8 text-center font-medium rounded-md scale-0 transition duration-300
 }
 
 #alert.green {
@@ -171,7 +171,7 @@ input{
 }
 
 #loader{
-  @apply h-10 w-10 mx-auto scale-0
+  @apply h-10 w-10 mx-auto scale-0 my-24
 }
 
 #loader.show{
