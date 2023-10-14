@@ -11,7 +11,7 @@ This is an app that allows a user to manage inventory of his/her store.
 
 ## Setup
 
-The site has been deployed. Open the live site and wait for the content to load. (The server spins down due to inactivity, it may take 2 - 3 mins to fetch data.)
+The site has been deployed. Open the live site and wait for the content to load. (The server spins down due to inactivity, it may take 1 - 2 mins to fetch data.)
 
 ## Links
 
