@@ -61,7 +61,7 @@ createBtn.addEventListener('click', () => {
     return
   }
 
-  postCategory({ name: formData.get('new-category') })
+  postCategory({ name: formData.get('new-category').toLowerCase() })
   createCategoryForm.reset()
   createCategoryForm.classList.remove('show-category-form')
 })
@@ -160,7 +160,7 @@ function displayProducts(arr,start, end){
     const {id, productName, category, quantity, cost, price} = item
     return `
       <tr>
-        <td>${productName}</td>
+        <td>${productName.toLowerCase()}</td>
         <td>${category}</td>
         <td>${quantity}</td>
         <td>$ ${cost}</td>
