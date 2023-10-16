@@ -122,12 +122,18 @@ closeAddFormBtn.addEventListener('click', () => {
 
 // show and hide filter options
 categoryBtn.addEventListener('click',() => {
+  quantityOptions.classList.remove('show-options')
+  priceOptions.classList.remove('show-options')
   categoryOptions.classList.toggle('show-options')
 })
 quantityBtn.addEventListener('click',() => {
+  priceOptions.classList.remove('show-options')
+  categoryOptions.classList.remove('show-options')
   quantityOptions.classList.toggle('show-options')
 })
 priceBtn.addEventListener('click',() => {
+  categoryOptions.classList.remove('show-options')
+  quantityOptions.classList.remove('show-options')
   priceOptions.classList.toggle('show-options')
 })
 
